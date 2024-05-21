@@ -16,3 +16,15 @@ def course3(request):
 
 def about_us(request):
     return render(request, 'about.html', {})
+
+def teachers(request):
+    return render(request, 'teachers.html', {})
+
+def pricing(request):
+    return render(request, 'pricing.html', {})
+    
+def contact(request):
+    return render(request, 'contact.html', {})
+
+# def book(request):
+#     return render(request, 'teachers.html', {})
