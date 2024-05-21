@@ -137,14 +137,21 @@
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Курсы</a>
 							<div class="dropdown-menu" aria-labelledby="dropdown-a">
-								<a class="dropdown-item" href="{% url 'app:course 1' %}">Курсы 1 </a>
-								<a class="dropdown-item" href="{% url 'app:course 2' %}">Курсы 2 </a>
-								<a class="dropdown-item" href="{% url 'app:course 3' %}">Курсы 3 </a>
+								<a class="dropdown-item" href="{% url 'app:course1' %}"> блабла </a>
+								<a class="dropdown-item" href="{% url 'app:course2' %}">Course Grid 2 </a>
+								<a class="dropdown-item" href="{% url 'app:course3' %}">Course Grid 3 </a>
 							</div>
 						</li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'app:teachers' %}">Учителя</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'app:pricing' %}">Ценообразование</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'app:contact' %}">Контакты</a></li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Blog </a>
+							<div class="dropdown-menu" aria-labelledby="dropdown-a">
+								<a class="dropdown-item" href="blog.html">Blog </a>
+								<a class="dropdown-item" href="blog-single.html">Blog single </a>
+							</div>
+						</li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'app:teachers' %}">Teachers</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'app:pricing' %}">Pricing</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'app:contact' %}">Contact</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
                         <li><a class="hover-btn-new log" href="#" data-toggle="modal" data-target="#login"><span></span></a></li>
