@@ -1,0 +1,5 @@
+.DS_Store - СКРЫТЫЙ ФАЙЛ
+	db.sqlite3
+	media/
+	app/migrations/
+	**/__pycache__/
