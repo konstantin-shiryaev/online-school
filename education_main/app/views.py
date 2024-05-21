@@ -14,5 +14,5 @@ def course2(request):
 def course3(request):
     return render(request, 'course-grid-3.html', {})
 
-def about(request):
+def about_us(request):
     return render(request, 'about.html', {})
