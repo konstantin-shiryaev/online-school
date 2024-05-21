@@ -131,7 +131,7 @@
 	<header class="top-navbar">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="index.html">
+				<a class="navbar-brand" href="{% url 'app:index' %}">
 					<img src="../../media/logo.png" alt="" />
 				</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-host" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
@@ -141,29 +141,22 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbars-host">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
-						<li class="nav-item"><a class="nav-link" href="about.html">О нас</a></li>
-						<li class="nav-item active dropdown">
+						<li class="nav-item"><a class="nav-link" href="{% url 'app:index' %}">Главная</a></li>
+						<li class="nav-item active"><a class="nav-link" href="{% url 'app:about_us' %}">О нас</a></li>
+						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Курсы</a>
 							<div class="dropdown-menu" aria-labelledby="dropdown-a">
-								<a class="dropdown-item" href="course-grid-1.html">Первая сетка курсов </a>
-								<a class="dropdown-item" href="course-grid-2.html">Вторая сетка курсов </a>
-								<a class="dropdown-item" href="course-grid-3.html">Третья сетка курсов </a>
+								<a class="dropdown-item" href="{% url 'app:course 1' %}">Курсы 1 </a>
+								<a class="dropdown-item" href="{% url 'app:course 2' %}">Курсы 2 </a>
+								<a class="dropdown-item" href="{% url 'app:course 3' %}">Курсы 3 </a>
 							</div>
 						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Блог</a>
-							<div class="dropdown-menu" aria-labelledby="dropdown-a">
-								<a class="dropdown-item" href="blog.html">Блог </a>
-								<a class="dropdown-item" href="blog-single.html">Один блог </a>
-							</div>
-						</li>
-						<li class="nav-item"><a class="nav-link" href="teachers.html">Учителя</a></li>
-						<li class="nav-item"><a class="nav-link" href="pricing.html">Стоимость</a></li>
-						<li class="nav-item"><a class="nav-link" href="contact.html">Контакты</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'app:teachers' %}">Учителя</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'app:pricing' %}">Ценообразование</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'app:contact' %}">Контакты</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-                        <li><a class="hover-btn-new log" href="#" data-toggle="modal" data-target="#login"><span>Подать заявку</span></a></li>
+                        <li><a class="hover-btn-new log" href="#" data-toggle="modal" data-target="#login"><span></span></a></li>
                     </ul>
 				</div>
 			</div>
