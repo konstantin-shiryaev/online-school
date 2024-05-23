@@ -3,3 +3,4 @@
 	media/
 	app/migrations/
 	**/__pycache__/
+../venv/
