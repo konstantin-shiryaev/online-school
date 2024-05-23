@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
  
      <!-- Site Metas -->
-    <title>Академия крутых специалистов</title>  
+    <title>О нашей академии</title>  
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -42,80 +42,46 @@
 
 	<!-- Modal -->
 	<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-	  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-		<div class="modal-content">
-			<div class="modal-header tit-up">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">Введите логин</h4>
-			</div>
-			<div class="modal-body customer-box">
-				<!-- Nav tabs -->
-				<ul class="nav nav-tabs">
-					<li><a class="active" href="#Login" data-toggle="tab">Логин</a></li>
-					<li><a href="#Registration" data-toggle="tab">Регистрация</a></li>
-				</ul>
-				<!-- Tab panes -->
-				<div class="tab-content">
-					<div class="tab-pane active" id="Login">
-						<form role="form" class="form-horizontal">
-							<div class="form-group">
-								<div class="col-sm-12">
-									<input class="form-control" id="email1" placeholder="Имя" type="text">
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-sm-12">
-									<input class="form-control" id="exampleInputPassword1" placeholder="Почта" type="email">
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-sm-10">
-									<button type="submit" class="btn btn-light btn-radius btn-brd grd1">
-										Отправить
-									</button>
-									<a class="for-pwd" href="javascript:;">Введите пароль</a>
-								</div>
-							</div>
-						</form>
-					</div>
-					<div class="tab-pane" id="Registration">
-						<form role="form" class="form-horizontal">
-							<div class="form-group">
-								<div class="col-sm-12">
-									<input class="form-control" placeholder="Имя" type="text">
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-sm-12">
-									<input class="form-control" id="email" placeholder="Email" type="email">
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-sm-12">
-									<input class="form-control" id="mobile" placeholder="Телефон" type="email">
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-sm-12">
-									<input class="form-control" id="password" placeholder="Password" type="password">
-								</div>
-							</div>
-							<div class="row">							
-								<div class="col-sm-10">
-									<button type="button" class="btn btn-light btn-radius btn-brd grd1">
-										Сохранить &amp; Продолжить
-									</button>
-									<button type="button" class="btn btn-light btn-radius btn-brd grd1">
-										Отменить</button>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	  </div>
-	</div>
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+          <div class="modal-content">
+              <div class="modal-header tit-up">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h4 class="modal-title"></h4>
+              </div>
+              <div class="modal-body customer-box">
+                  <!-- Nav tabs -->
+                  <ul class="nav nav-tabs">
+                      <li><a class="active" href="#Login" data-toggle="tab">Вход</a></li>
+                  </ul>
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                      <div class="tab-pane active" id="Login">
+                          <form role="form" class="form-horizontal">
+                              <div class="form-group">
+                                  <div class="col-sm-12">
+                                      <input class="form-control" id="email1" placeholder="Name" type="text">
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                  <div class="col-sm-12">
+                                      <input class="form-control" id="exampleInputPassword1" placeholder="Email" type="email">
+                                  </div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-sm-10">
+                                      <button type="submit" class="btn btn-light btn-radius btn-brd grd1">
+                                          Отправить
+                                      </button>
+                                      <a class="for-pwd" href="javascript:;">Забыли пароль?</a>
+                                  </div>
+                              </div>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
 
     <!-- LOADER -->
 	<div id="preloader">
@@ -146,9 +112,9 @@
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Курсы</a>
 							<div class="dropdown-menu" aria-labelledby="dropdown-a">
-								<a class="dropdown-item" href="{% url 'app:course 1' %}">Курсы 1 </a>
-								<a class="dropdown-item" href="{% url 'app:course 2' %}">Курсы 2 </a>
-								<a class="dropdown-item" href="{% url 'app:course 3' %}">Курсы 3 </a>
+								<a class="dropdown-item" href="{% url 'app:course1' %}">Курс №1 </a>
+								<a class="dropdown-item" href="{% url 'app:course2' %}">Курс №2 </a>
+								<a class="dropdown-item" href="{% url 'app:course3' %}">Курс №3 </a>
 							</div>
 						</li>
 						<li class="nav-item"><a class="nav-link" href="{% url 'app:teachers' %}">Учителя</a></li>
@@ -156,7 +122,7 @@
 						<li class="nav-item"><a class="nav-link" href="{% url 'app:contact' %}">Контакты</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-                        <li><a class="hover-btn-new log" href="#" data-toggle="modal" data-target="#login"><span></span></a></li>
+                        <li><a class="hover-btn-new log" href="#" data-toggle="modal" data-target="#login"><span>Оставить заявку</span></a></li>
                     </ul>
 				</div>
 			</div>
