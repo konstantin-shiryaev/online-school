@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, Http404
+# from django.template.loader import render_to_string
 
 # Create your views here.
 def index(request):
@@ -24,6 +25,7 @@ def pricing(request):
     return render(request, 'pricing.html', {})
     
 def contact(request):
+    # response = render_to_string('app/')
     return render(request, 'contact.html', {})
 
 # def book(request):
