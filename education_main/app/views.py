@@ -25,7 +25,7 @@ def pricing(request):
     return render(request, 'pricing.html', {})
     
 def contact(request):
-    response = render_to_string('app/')
+    # response = render_to_string('app/')
     return render(request, 'contact.html', {})
 
 # def book(request):
