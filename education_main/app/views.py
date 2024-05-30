@@ -30,3 +30,8 @@ def contact(request):
 
 # def book(request):
 #     return render(request, 'teachers.html', {})
+
+# ale
+# ale 2
+# ale 3
+# ale 4
