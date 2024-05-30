@@ -28,4 +28,3 @@ class Course(models.Model):
     teachers = models.ManyToManyField('app.Teacher')
     def __str__(self):
         return self.name_course    
-    
