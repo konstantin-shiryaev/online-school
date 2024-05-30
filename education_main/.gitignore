@@ -1,7 +1,5 @@
 .DS_Store - СКРЫТЫЙ ФАЙЛ
 	db.sqlite3
 	media/
-	app/migrations/
-	**/__pycache__/
-	app/__init__
-	education_main/__init__
+	__pycache__/
+	__init__.py
