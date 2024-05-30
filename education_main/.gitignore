@@ -1,7 +1,5 @@
 .DS_Store
-	db.sqlite3
-	media/
-	app/migrations/
-	**/__pycache__/
-	app/__init__.py
+db.sqlite3
+media/
+__pycache__/
 ../venv/
