@@ -3,4 +3,5 @@
 	media/
 	app/migrations/
 	**/__pycache__/
+	app/__init__.py
 ../venv/

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
  
      <!-- Site Metas -->
-    <title>Наши контакты</title>  
+    <title>{{ title }}</title>  
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -60,18 +60,18 @@
 						  <form role="form" class="form-horizontal">
 							  <div class="form-group">
 								  <div class="col-sm-12">
-									  <input class="form-control" id="email1" placeholder="Name" type="text">
+									  <input class="form-control" id="email1" placeholder="Имя" type="text">
 								  </div>
 							  </div>
 							  <div class="form-group">
 								  <div class="col-sm-12">
-									  <input class="form-control" id="exampleInputPassword1" placeholder="Email" type="email">
+									  <input class="form-control" id="exampleInputPassword1" placeholder="Почта" type="email">
 								  </div>
 							  </div>
 							  <div class="row">
 								  <div class="col-sm-10">
 									  <button type="submit" class="btn btn-light btn-radius btn-brd grd1">
-										  Отправить
+										  Войти
 									  </button>
 									  <a class="for-pwd" href="javascript:;">Забыли пароль?</a>
 								  </div>
@@ -123,7 +123,7 @@
 						<li class="nav-item"><a class="nav-link" href="{% url 'app:contact' %}">Контакты</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-                        <li><a class="hover-btn-new log" href="#" data-toggle="modal" data-target="#login"><span>Оставить заявку</span></a></li>
+                        <li><a class="hover-btn-new log" href="#" data-toggle="modal" data-target="#login"><span>Войти</span></a></li>
                     </ul>
 				</div>
 			</div>
@@ -131,12 +131,10 @@
 	</header>
 	<!-- End header -->
 	
-	<div>
-        {% block content %}
-        {% endblock %}
-    </div>
+{% block content %}
+{% endblock %}
 
-    <footer class="footer">
+		<footer class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-xs-12">
@@ -147,11 +145,9 @@
                         <p> Престижная. Иновационная школа с уникальным методом обучения студентов по особой программе. Гарантирующая результат за короткий срок обучения студентов в новой сфере деятельности. Программирование.</p>
                         <div class="footer-right">
 							<ul class="footer-links-soi">
-								<li><a href="#"><i class="fa fa-vk"></i></a></li>
-								<li><a href="https://github.com/Sergey-Bodnyaev"><i class="fa fa-github"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#"><i class="fa fa-youtube"></i></a></li>
-								<li><a href="#"><i class="fa fa-yandex"></i></a></li>
+								<li><a href="https://vk.com/topacademy_official" target="_blank"><i class="fa fa-vk"></i></a></li>
+								<li><a href="https://github.com/Sergey-Bodnyaev" target="_blank"><i class="fa fa-github"></i></a></li>
+								<li><a href="https://www.youtube.com/" target="_blank"><i class="fa fa-youtube"></i></a></li>
 							</ul><!-- end links -->
 						</div>
                     </div><!-- end clearfix -->
@@ -195,22 +191,10 @@
         <div class="container">
             <div class="footer-distributed">
                 <div class="footer-center">                   
-                    <p class="footer-company-name">Все права защищены. &copy; 2024 <a href="#">Академия крутых специалистов</a> Создатели студенты школы Топ Академия: <a href="https://msk.top-academy.ru">Топ Академия</a></p>
+                    <p class="footer-company-name">Все права защищены. &copy; 2024 Академия крутых специалистов. Создатели сайта студенты школы <a href="https://msk.top-academy.ru">Топ Академия</a></p>
                 </div>
             </div>
         </div><!-- end container -->
     </div><!-- end copyrights -->
-
-    <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
-
-    <!-- ALL JS FILES -->
-    <script src="../../static/js/all.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCKjLTXdq6Db3Xit_pW_GK4EXuPRtnod4o"></script>
-	<!-- Mapsed JavaScript -->
-	<script src="../../static/js/mapsed.js"></script>
-	<script src="../../static/js/01-custom-places-example.js"></script>
-    <!-- ALL PLUGINS -->
-    <script src="../../static/js/custom.js"></script>
-
-</body>
-</html>
+	{% block content2 %}
+    {% endblock %}
