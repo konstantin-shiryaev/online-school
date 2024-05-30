@@ -2,6 +2,4 @@
 	db.sqlite3
 	media/
 	app/migrations/
-	**/__pycache__/
-	app/__init__
-	education_main/__init__
+	
