@@ -1,4 +1,5 @@
 {% load static %}
+{% load login %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,32 +52,13 @@
 			  </div>
 			  <div class="modal-body customer-box">
 				  <!-- Nav tabs -->
-				  <ul class="nav nav-tabs">
+				  <!-- <ul class="nav nav-tabs">
 					  <li><a class="active" href="#Login" data-toggle="tab">Вход</a></li>
-				  </ul>
+				  </ul> -->
 				  <!-- Tab panes -->
 				  <div class="tab-content">
 					  <div class="tab-pane active" id="Login">
-						  <form role="form" class="form-horizontal">
-							  <div class="form-group">
-								  <div class="col-sm-12">
-									  <input class="form-control" id="email1" placeholder="Имя" type="text">
-								  </div>
-							  </div>
-							  <div class="form-group">
-								  <div class="col-sm-12">
-									  <input class="form-control" id="exampleInputPassword1" placeholder="Почта" type="email">
-								  </div>
-							  </div>
-							  <div class="row">
-								  <div class="col-sm-10">
-									  <button type="submit" class="btn btn-light btn-radius btn-brd grd1">
-										  Войти
-									  </button>
-									  <a class="for-pwd" href="javascript:;">Забыли пароль?</a>
-								  </div>
-							  </div>
-						  </form>
+						 {% login %} 
 					  </div>
 				  </div>
 			  </div>
@@ -123,7 +105,13 @@
 						<li class="nav-item"><a class="nav-link" href="{% url 'app:contact' %}">Контакты</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-                        <li><a class="hover-btn-new log" href="#" data-toggle="modal" data-target="#login"><span>Войти</span></a></li>
+                        <li><a class="hover-btn-new log" href="#" data-toggle="modal" data-target="#login"><span>
+							{% if user.is_anonymous %}
+							Войти
+							{% else %}
+							Выйти
+							{% endif %}
+						</span></a></li>
                     </ul>
 				</div>
 			</div>
