@@ -37,5 +37,5 @@ def order2(request):
 def student(request):
     # response = render_to_string('app/')
     return render(request, 'student.html', {})
-# def book(request):
-#     return render(request, 'teachers.html', {})
+def teachertable(request):
+    return render(request, 'teachertable.html', {})
