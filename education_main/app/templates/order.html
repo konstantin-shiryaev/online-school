@@ -1,0 +1,93 @@
+{% extends 'layout.html' %}
+{% block content %}
+	<!-- End header -->
+	
+	<div class="all-title-box">
+		<div class="container text-center">
+			<h1 style="color: #333333">Личный кабинет менеджера</h1>
+		</div>
+	</div>
+	
+    <div id="overviews" class="section wb">
+        <div class="container">
+            <div class="section-title row text-center">
+                
+				</h2>
+            </div><!-- end title -->
+			
+            <hr class="invis"> 
+
+            <div class="row"> 
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="course-item">
+						<div class="image-blog">
+							<!-- <img src="../../media/blog_1.jpg" alt="" class="img-fluid"> -->
+						</div>
+						<div class="course-br">
+							<div class="course-title">
+								<h2><a href="#" title="">Запрос от: [переменная]</a></h2>
+							</div>
+							<div class="course-desc">
+								<p>Текст: [переменная]</p>
+							</div>
+							<hr>
+							<div class="course-desc">
+								<p>Дата: [переменная]</p>
+							</div>
+						</div>
+						<div class="course-meta-bot">
+							<ul>
+								<div class="big-tagline">
+									<a href="{% url 'app:contact' %}" class="hover-btn-new"><span>Принять</span></a>
+										
+								</div>
+								
+							</ul>
+						</div>
+					</div>
+                </div><!-- end col -->
+            </div><!-- end row -->
+			
+			
+			
+			
+			<hr class="hr3"> 
+        </div><!-- end container -->
+    </div><!-- end section -->
+
+    <div class="parallax section dbcolor">
+        <div class="container">
+            <div class="row logos">
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="../../media/logo_01.png" alt="" class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="../../media/logo_02.png" alt="" class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="../../media/logo_03.png" alt="" class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="../../media/logo_04.png" alt="" class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="../../media/logo_05.png" alt="" class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="../../media/logo_06.png" alt="" class="img-repsonsive"></a>
+                </div>
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end section -->
+{% endblock %}
+{% block content2 %}
+    <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+
+    <!-- ALL JS FILES -->
+    <script src="../../static/js/all.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="../../static/js/custom.js"></script>
+
+</body>
+</html>
+{% endblock %}
