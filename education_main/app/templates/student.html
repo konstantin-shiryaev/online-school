@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+{% block content %}
+	<!-- End header -->
+	
+	<div class="all-title-box">
+		<div class="container text-center">
+			<h1 style="color: #333333">Личный кабинет студента</h1>
+            <br>
+            <h2 style="color: #333333">Индус Тарелкин</h2>
+            <hr>
+            <br>
+            <h2>Мой курс: <a href="{% url 'app:course1' %}">Backend-Разработчик</a></h2>
+            <hr>
+		</div>
+	</div>
+    
+    
+
+
+
+    <div class="parallax section dbcolor">
+        <div class="container">
+            <div class="row logos">
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="../../media/logo_01.png" alt="" class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="../../media/logo_02.png" alt="" class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="../../media/logo_03.png" alt="" class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="../../media/logo_04.png" alt="" class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="../../media/logo_05.png" alt="" class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="../../media/logo_06.png" alt="" class="img-repsonsive"></a>
+                </div>
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end section -->
+{% endblock %}
+{% block content2 %}
+    <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+
+    <!-- ALL JS FILES -->
+    <script src="../../static/js/all.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="../../static/js/custom.js"></script>
+
+</body>
+</html>
+{% endblock %}
