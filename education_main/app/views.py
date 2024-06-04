@@ -28,5 +28,8 @@ def contact(request):
     # response = render_to_string('app/')
     return render(request, 'contact.html', {})
 
+def teachertable(request):
+    return render(request, 'teachertable.html', {})
+
 # def book(request):
 #     return render(request, 'teachers.html', {})
