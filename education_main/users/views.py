@@ -12,5 +12,10 @@ def log_in(request):
         print(user)
         return redirect('app:contact')
     return render(request, 'index.html', {})
+
+def log_out(request):
+    if request.method == 'POST':
+        logout(request)
+    return redirect('app:index')
     
     
