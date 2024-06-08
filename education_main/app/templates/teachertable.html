@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+{% block content %}
+  <div class="container-fluid">
+      <div class="container text-center">
+        <h1 style="color: #333333;">Список студентов</h1>
+      </div>
+  </div>
+  
+  <table class="table table-hover">
+      <caption>List of users</caption>
+      <thead>
+        <tr>
+          <th scope="col">№</th>
+          <th scope="col">Фамилия</th>
+          <th scope="col">Имя</th>
+          <th scope="col">Отчество</th>
+          <th scope="col">Возраст</th>
+          <th scope="col">Курс</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%for user in users%}
+        <tr>
+          <th scope="row">{{loop.index}}</th>
+          <td>{{lastname}}</td>
+          <td>{{name}}</td>
+          <td>{{surname}}</td>
+          <td>{{Well}}</td>  {% comment %} Well - курс обучения {% endcomment %}
+        </tr>
+        {%endfor%}
+      </tbody>
+    </table>
+{% endblock %}
+{% block content2 %}
+<a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+
+<!-- ALL JS FILES -->
+<script src="../../static/js/all.js"></script>
+<script src="../../static/js/01-custom-places-example.js"></script>
+<!-- ALL PLUGINS -->
+<script src="../../static/js/custom.js"></script>
+
+
+{% endblock %}

@@ -121,11 +121,15 @@
 								<a class="dropdown-item" href="{% url 'app:course1' %}">Backend-разработчик</a>
 								<a class="dropdown-item" href="{% url 'app:course2' %}">Frontend-разработчик</a>
 								<a class="dropdown-item" href="{% url 'app:course3' %}">Fullstack-разработчик </a>
+                                <a class="dropdown-item" href="{% url 'app:order' %}">order </a>
+                                <a class="dropdown-item" href="{% url 'app:order2' %}">order2 </a>
+                                <a class="dropdown-item" href="{% url 'app:student' %}">student </a>
 							</div>
 						</li>
 						<li class="nav-item"><a class="nav-link" href="{% url 'app:teachers' %}">Учителя</a></li>
 						<li class="nav-item"><a class="nav-link" href="{% url 'app:pricing' %}">Ценообразование</a></li>
 						<li class="nav-item"><a class="nav-link" href="{% url 'app:contact' %}">Обратная связь</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'app:teachertable' %}">Таблица студентов</a></li>  {% comment %} временно поставил ссылку {% endcomment %}
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
                         <li>
@@ -214,7 +218,7 @@
         <div class="container">
             <div class="footer-distributed">
                 <div class="footer-center">                   
-                    <p class="footer-company-name">Все права защищены. &copy; 2024 Академия крутых специалистов. Создатели сайта студенты школы <a href="https://msk.top-academy.ru">Топ Академия</a> Ширяев Константин, Бодняев Сергей, Ярков Кирилл</p>
+                    <p class="footer-company-name">Все права защищены. &copy; 2024 {{school}}. Создатели сайта студенты школы <a href="https://msk.top-academy.ru" target="_blank">Топ Академия</a> Ширяев Константин, Бодняев Сергей, Ярков Кирилл</p>
                 </div>
             </div>
         </div><!-- end container -->
