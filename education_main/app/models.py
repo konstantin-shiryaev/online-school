@@ -26,4 +26,4 @@ class Course(models.Model):
     slug = models.SlugField(unique=True)
     teachers = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     def __str__(self):
-        return self.name_course    
+        return self.name_course
