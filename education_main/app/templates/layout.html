@@ -2,7 +2,7 @@
 {% load login %}
 <!DOCTYPE html>
 <html lang="en">
-
+<head>
     <!-- Basic -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">   
@@ -65,6 +65,29 @@
 		  </div>
 		</div>
 	  </div>
+	<div class="modal fade" id="logout" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+		  <div class="modal-content">
+			  
+			  <div class="modal-body customer-box">
+				  
+				  <div class="tab-content">
+					  <div class="tab-pane active" id="Logout">
+						 <div class="text-center" style="color: orange; font-size: 1.5rem;">
+                            Вы действительно хотите выйти?
+                        </div>
+                        <form method="post" action="{% url 'users:logout' %}">
+                            {% csrf_token %}
+                            <div style="text-align: center; width: 100%;">
+                                <button class="btn btn-primary" type="submit">Выйти</button>
+                            </div>
+                        </form>
+					  </div>
+				  </div>
+			  </div>
+		  </div>
+		</div>
+	  </div>
 
 	<!-- LOADER -->
 	<div id="preloader">
@@ -81,7 +104,7 @@
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="{% url 'app:index' %}">
-					<img src="../../media/logo.png" alt="" />
+					<img src="../../media/topacademy3.webp" alt="" />
 				</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-host" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="icon-bar"></span>
@@ -98,24 +121,34 @@
 								<a class="dropdown-item" href="{% url 'app:course1' %}">Backend-разработчик</a>
 								<a class="dropdown-item" href="{% url 'app:course2' %}">Frontend-разработчик</a>
 								<a class="dropdown-item" href="{% url 'app:course3' %}">Fullstack-разработчик </a>
-                                <a class="dropdown-item" href="{% url 'app:order' %}">order </a>
-                                <a class="dropdown-item" href="{% url 'app:order2' %}">order2 </a>
-                                <a class="dropdown-item" href="{% url 'app:student' %}">student </a>
+                               
 							</div>
 						</li>
 						<li class="nav-item"><a class="nav-link" href="{% url 'app:teachers' %}">Учителя</a></li>
 						<li class="nav-item"><a class="nav-link" href="{% url 'app:pricing' %}">Ценообразование</a></li>
 						<li class="nav-item"><a class="nav-link" href="{% url 'app:contact' %}">Обратная связь</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'app:teachertable' %}">Таблица студентов</a></li>  {% comment %} временно поставил ссылку {% endcomment %}
+						
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-                        <li><a class="hover-btn-new log" href="#" data-toggle="modal" data-target="#login"><span>
-							{% if user.is_anonymous %}
-							Войти
-							{% else %}
-							Выйти
-							{% endif %}
-						</span></a></li>
+                        <li>
+                            
+                                <span>
+                                    {% if user.is_anonymous %}
+                                    <a class="hover-btn-new log" href="#" data-toggle="modal" data-target="#login">
+                                        <span>
+                                        Войти
+                                        </span>
+                                    </a>
+                                    {% else %}
+                                    <a class="hover-btn-new log" href="#" data-toggle="modal" data-target="#logout">
+                                        <span>
+                                        Выйти
+                                        </span>
+                                    </a>
+                                    {% endif %}
+						        </span>
+                            
+                        </li>
                     </ul>
 				</div>
 			</div>

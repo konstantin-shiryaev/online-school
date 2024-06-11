@@ -22,7 +22,10 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(('app.urls', 'app'), namespace='app')),
-    path('users/', include(('users.urls', 'users'), namespace='users'))
+    path('users/', include(('users.urls', 'users'), namespace='users')),
+    path('manager/', include(('manager.urls', 'manager'), namespace='manager')),
+    path('teacher/', include(('teacher.urls', 'teacher'), namespace='teacher')),
+    path('student/', include(('student.urls', 'student'), namespace='student')),
 ]
 urlpatterns += static(
     settings.MEDIA_URL,

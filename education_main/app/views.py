@@ -61,18 +61,6 @@ def contact(request):
     # response = render_to_string('app/')
     return render(request, 'contact.html', context)
 
-def order(request):
-    # response = render_to_string('app/')
-    return render(request, 'order.html', {})
-def order2(request):
-    # response = render_to_string('app/')
-    return render(request, 'order2.html', {})
-def student(request):
-    # response = render_to_string('app/')
-    return render(request, 'student.html', {})
-def teachertable(request):
-    context = {
-        'title': 'Список студентов',
-        'school': school
-    }
-    return render(request, 'teachertable.html', context)
+
+
+
