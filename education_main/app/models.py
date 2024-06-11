@@ -16,15 +16,14 @@ class Student(models.Model): # st = student
     mail_st = models.CharField(max_length=255)  # st = student
     birthday_st = models.DateField() # st = student
     datecreated_st = models.DateField(auto_now_add=True) # st = student
+    courses = models.ManyToManyField('app.Course')
     def __str__(self):
         return self.fullname_st
     
 class Course(models.Model):
     name_course = models.CharField(max_length=255)
     price_course = models.CharField(max_length=255)
-    likes = models.ManyToManyField(User, related_name='likes')
     slug = models.SlugField(unique=True)
-    students = models.ManyToManyField('app.Student')
-    teachers = models.ManyToManyField('app.Teacher')
+    teachers = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     def __str__(self):
         return self.name_course    
