@@ -27,4 +27,4 @@ class Course(models.Model):
     students = models.ManyToManyField('app.Student')
     teachers = models.ManyToManyField('app.Teacher')
     def __str__(self):
-        return self.name_course    
+        return self.name_course
