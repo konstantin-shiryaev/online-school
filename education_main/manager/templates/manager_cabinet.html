@@ -15,43 +15,33 @@
             <button>Добавить</button>
             <button>Удалить</button>
             <button>Редактировать</button>
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">
-                                            #
-                                        </th>
-                                        <th scope="col">
-                                            Имя
-                                        </th>
-                                        <th scope="col">
-                                            Фамилия
-                                        </th>
-                                        <th scope="col">
-                                            Почта
-                                        </th>
-                                        <th scope="col">
-                                            Дата добавления
-                                        </th>
-                                        
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td> Але </td>
-                                        <td> Аленов </td>
-                                        <td> Аленов@babka.com </td>
-                                        <td> +790Пять6664444 </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td> неАле </td>
-                                        <td> неАленов </td>
-                                        <td> неАленов@babka.com </td>
-                                        <td> не+790Пять6664444 </td>
-                                    </tr>
-                                </tbody>
-                                </table>
+            <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">№</th>
+                    <th scope="col">Фамилия</th>
+                    <th scope="col">Имя</th>
+                    <th scope="col">Никнейм</th>
+                    <th scope="col">Активность</th>
+                    <th scope="col">Почта</th>
+                    <th scope="col">Добавлен</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for teacher in teachers %}
+                <tr>
+                  <td>{{teacher.id}}</td>
+                  <td>{{teacher.last_name}}</td>
+                  <td>{{teacher.first_name}}</td>
+                  <td>{{teacher.username}}</td>
+                  <td>{{teacher.is_active}}</td>
+                  <td>{{teacher.email}}</td>
+                  <td>{{teacher.date_joined}}</td>
+                </tr>
+                {% endfor %}
+          
+                </tbody>
+              </table>
 							
 						
 					</div>
@@ -73,38 +63,44 @@
     <div id="overviews" class="section wb">
         <div class="container">
             <button>Добавить</button>
-            <button>Удалить</button>
-            <button>Редактировать</button>
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">
-                                            #
-                                        </th>
-                                        <th scope="col">
-                                            Имя
-                                        </th>
-                                        <th scope="col">
-                                            Фамилия
-                                        </th>
-                                        <th scope="col">
-                                            Почта
-                                        </th>
-                                        <th scope="col">
-                                            Дата добавления
-                                        </th>
-                                        
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td> Але </td>
-                                        <td> Аленов </td>
-                                        <td> Аленов@babka.com </td>
-                                        <td> +790Пять6664444 </td>
-                                    </tr>
-                                </tbody>
-                                </table>
+           
+            <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">№</th>
+                    <th scope="col">Фамилия</th>
+                    <th scope="col">Имя</th>
+                    <th scope="col">Никнейм</th>
+                    <th scope="col">Активность</th>
+                    <th scope="col">Почта</th>
+                    <th scope="col">Добавлен</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for student in students %}
+                <tr>
+                  <td>{{student.id}}</td>
+                  <td>{{student.last_name}}</td>
+                  <td>{{student.first_name}}</td>
+                  <td>{{student.username}}</td>
+                  <td>{{student.is_active}}</td>
+                  <td>{{student.email}}</td>
+                  <td>{{student.date_joined}}</td>
+                  <td>
+                    <form method="post">
+                        <a href="{% url 'manager:delete_student' student.id %}">Удалить</a>
+                    </form>
+                  </td>
+                  <td>
+                    <a>Редактировать</a>
+                  </td>
+                </tr>
+                {% endfor %}
+          
+                </tbody>
+              </table>
 							
 						
 					</div>
