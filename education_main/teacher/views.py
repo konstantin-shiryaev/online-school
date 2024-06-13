@@ -1,3 +1,4 @@
+
 from django.shortcuts import render
 from django.contrib.auth.models import User
 
@@ -10,3 +11,4 @@ def teacher_cabinet(request):
         'students': students
     }
     return render(request, 'teacher_cabinet.html', context)
+

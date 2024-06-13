@@ -10,7 +10,7 @@
       <thead>
         <tr>
           <th scope="col">№</th>
-          <th scope="col">Фамилия</th>
+          <th scope="col">Фамилия имя отчество</th>
           <th scope="col">Имя</th>
           <th scope="col">Никнейм</th>
           <th scope="col">Активность</th>
@@ -21,6 +21,7 @@
       <tbody>
       {% for student in students %}
       <tr>
+
         <td>{{student.id}}</td>
         <td>{{student.last_name}}</td>
         <td>{{student.first_name}}</td>
@@ -28,6 +29,7 @@
         <td>{{student.is_active}}</td>
         <td>{{student.email}}</td>
         <td>{{student.date_joined}}</td>
+
       </tr>
       {% endfor %}
 

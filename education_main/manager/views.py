@@ -1,3 +1,4 @@
+
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 
@@ -25,3 +26,4 @@ def delete_student(request, pk):
         students.delete()
         return redirect('manager:manager_cabinet')
     return render(request, "manager_cabinet.html")
+
