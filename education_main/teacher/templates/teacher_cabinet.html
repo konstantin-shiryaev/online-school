@@ -7,11 +7,10 @@
   </div>
   
   <table class="table table-hover">
-      <caption>List of users</caption>
       <thead>
         <tr>
           <th scope="col">№</th>
-          <th scope="col">Фамилия</th>
+          <th scope="col">Фамилия имя отчество</th>
           <th scope="col">Имя</th>
           <th scope="col">Отчество</th>
           <th scope="col">Возраст</th>
@@ -19,15 +18,13 @@
         </tr>
       </thead>
       <tbody>
-        {%for user in users%}
-        <tr>
-          <th scope="row">{{loop.index}}</th>
-          <td>{{lastname}}</td>
-          <td>{{name}}</td>
-          <td>{{surname}}</td>
-          <td>{{Well}}</td>  {% comment %} Well - курс обучения {% endcomment %}
-        </tr>
-        {%endfor%}
+      {% for student in students %}
+      <tr>
+        <td>{{student.pk}}</td>
+        <td>{{student.username}}</td>
+      </tr>
+      {% endfor %}
+
       </tbody>
     </table>
 {% endblock %}
