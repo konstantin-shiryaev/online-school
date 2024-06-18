@@ -14,7 +14,7 @@ def log_in(request):
 
         login(request, user)
         if user.is_superuser:
-            return redirect('app:manager_cabinet')
+            return redirect('manager:manager_cabinet')
         return redirect(redirects[group])
     return render(request, 'index.html', {})
 
