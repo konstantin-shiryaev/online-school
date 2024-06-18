@@ -1,17 +1,19 @@
 {% load static %}
 {% load login %}
+{% load sign_up %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Basic -->
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">   
-   
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
- 
-     <!-- Site Metas -->
-    <title>{{ title }}</title>  
+
+    <!-- Site Metas -->
+    <title>{{ title }}</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -40,126 +42,160 @@
     <![endif]-->
 
 </head>
-<body class="host_version"> 
 
-	<!-- Modal -->
-	<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-		  <div class="modal-content">
-			  <div class="modal-header tit-up">
-				  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				  <h4 class="modal-title"></h4>
-			  </div>
-			  <div class="modal-body customer-box">
-				  <!-- Nav tabs -->
-				  <!-- <ul class="nav nav-tabs">
+<body class="host_version">
+
+    <!-- Modal -->
+    <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header tit-up">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body customer-box">
+                    <!-- Nav tabs -->
+                    <!-- <ul class="nav nav-tabs">
 					  <li><a class="active" href="#Login" data-toggle="tab">Вход</a></li>
 				  </ul> -->
-				  <!-- Tab panes -->
-				  <div class="tab-content">
-					  <div class="tab-pane active" id="Login">
-						 {% login %} 
-					  </div>
-				  </div>
-			  </div>
-		  </div>
-		</div>
-	  </div>
-	<div class="modal fade" id="logout" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-		  <div class="modal-content">
-			  
-			  <div class="modal-body customer-box">
-				  
-				  <div class="tab-content">
-					  <div class="tab-pane active" id="Logout">
-						 <div class="text-center" style="color: orange; font-size: 1.5rem;">
-                            Вы действительно хотите выйти?
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="Login">
+                            {% login %}
                         </div>
-                        <form method="post" action="{% url 'users:logout' %}">
-                            {% csrf_token %}
-                            <div style="text-align: center; width: 100%;">
-                                <button class="btn btn-primary" type="submit">Выйти</button>
-                            </div>
-                        </form>
-					  </div>
-				  </div>
-			  </div>
-		  </div>
-		</div>
-	  </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header tit-up">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body customer-box">
+                    <!-- Nav tabs -->
+                    <!-- <ul class="nav nav-tabs">
+					  <li><a class="active" href="#Login" data-toggle="tab">Вход</a></li>
+				  </ul> -->
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div class="tab-pane active">
+                            {% sign_up %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="logout" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
 
-	<!-- LOADER -->
-	<div id="preloader">
-		<div class="loader-container">
-			<div class="progress-br float shadow">
-				<div class="progress__item"></div>
-			</div>
-		</div>
-	</div>
-	<!-- END LOADER -->	
+                <div class="modal-body customer-box">
+
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="Logout">
+                            <div class="text-center" style="color: orange; font-size: 1.5rem;">
+                                Вы действительно хотите выйти?
+                            </div>
+                            <form method="post" action="{% url 'users:logout' %}">
+                                {% csrf_token %}
+                                <div style="text-align: center; width: 100%;">
+                                    <button class="btn btn-primary" type="submit">Выйти</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LOADER -->
+    <div id="preloader">
+        <div class="loader-container">
+            <div class="progress-br float shadow">
+                <div class="progress__item"></div>
+            </div>
+        </div>
+    </div>
+    <!-- END LOADER -->
 
     <!-- Start header -->
-	<header class="top-navbar">
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<div class="container-fluid">
-				<a class="navbar-brand" href="{% url 'app:index' %}">
-					<img width="200" src="../../media/topacademy3.webp" alt="" />
-				</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-host" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="icon-bar"></span>
+    <header class="top-navbar">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'app:index' %}">
+                    <img width="200" src="../../media/topacademy3.webp" alt="" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-host"
+                    aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbars-host">
-					<ul class="navbar-nav ml-auto">
-						<li class="nav-item"><a class="nav-link" href="{% url 'app:index' %}">Главная</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'app:about_us' %}">О нас</a></li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Курсы</a>
-							<div class="dropdown-menu" aria-labelledby="dropdown-a">
-								<a class="dropdown-item" href="{% url 'app:course1' %}">Backend-разработчик</a>
-								<a class="dropdown-item" href="{% url 'app:course2' %}">Frontend-разработчик</a>
-								<a class="dropdown-item" href="{% url 'app:course3' %}">Fullstack-разработчик </a>
-                               
-							</div>
-						</li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'app:teachers' %}">Учителя</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'app:pricing' %}">Ценообразование</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'app:contact' %}">Обратная связь</a></li>
-						
-					</ul>
-					<ul class="nav navbar-nav navbar-right">
-                        <li>
-                            
-                                <span>
-                                    {% if user.is_anonymous %}
-                                    <a class="hover-btn-new log" href="#" data-toggle="modal" data-target="#login">
-                                        <span>
-                                        Войти
-                                        </span>
-                                    </a>
-                                    {% else %}
-                                    <a class="hover-btn-new log" href="#" data-toggle="modal" data-target="#logout">
-                                        <span>
-                                        Выйти
-                                        </span>
-                                    </a>
-                                    {% endif %}
-						        </span>
-                            
-                        </li>
-                    </ul>
-				</div>
-			</div>
-		</nav>
-	</header>
-	<!-- End header -->
-	
-{% block content %}
-{% endblock %}
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbars-host">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="{% url 'app:index' %}">Главная</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'app:about_us' %}">О нас</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown-a"
+                                data-toggle="dropdown">Курсы</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown-a">
+                                <a class="dropdown-item" href="{% url 'app:course1' %}">Backend-разработчик</a>
+                                <a class="dropdown-item" href="{% url 'app:course2' %}">Frontend-разработчик</a>
+                                <a class="dropdown-item" href="{% url 'app:course3' %}">Fullstack-разработчик </a>
 
-		<footer class="footer">
+                            </div>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'app:teachers' %}">Учителя</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'app:pricing' %}">Ценообразование</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'app:contact' %}">Обратная связь</a></li>
+
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="mr-1">
+
+                            <span>
+                                {% if user.is_anonymous %}
+                                <a class="hover-btn-new log" href="#" data-toggle="modal" data-target="#login">
+                                    <span>
+                                        Войти
+                                    </span>
+                                </a>
+                                {% else %}
+                                <a class="hover-btn-new log" href="#" data-toggle="modal" data-target="#logout">
+                                    <span>
+                                        Выйти
+                                    </span>
+                                </a>
+                                {% endif %}
+                            </span>
+
+                        </li>
+                        {% if user.is_anonymous %}
+                        <li class="mr-1">
+                            <a class="hover-btn-new log" href="#" data-toggle="modal" data-target="#register">
+                                <span>
+                                    Зарегистрироваться
+                                </span>
+                            </a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- End header -->
+
+    {% block content %}
+    {% endblock %}
+
+    <footer class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-xs-12">
@@ -167,32 +203,36 @@
                         <div class="widget-title">
                             <h3>О нас</h3>
                         </div>
-                        <p> Престижная инновационная школа с уникальным методом обучения студентов по особой программе. Гарантируем результат за короткий срок обучения!</p>
+                        <p> Престижная инновационная школа с уникальным методом обучения студентов по особой программе.
+                            Гарантируем результат за короткий срок обучения!</p>
                         <div class="footer-right">
-							<ul class="footer-links-soi">
-								<li><a href="https://vk.com/topacademy_official" target="_blank"><i class="fa fa-vk"></i></a></li>
-								<li><a href="https://github.com/Sergey-Bodnyaev" target="_blank"><i class="fa fa-github"></i></a></li>
-								<li><a href="https://www.youtube.com/" target="_blank"><i class="fa fa-youtube"></i></a></li>
-							</ul><!-- end links -->
-						</div>
+                            <ul class="footer-links-soi">
+                                <li><a href="https://vk.com/topacademy_official" target="_blank"><i
+                                            class="fa fa-vk"></i></a></li>
+                                <li><a href="https://github.com/Sergey-Bodnyaev" target="_blank"><i
+                                            class="fa fa-github"></i></a></li>
+                                <li><a href="https://www.youtube.com/" target="_blank"><i class="fa fa-youtube"></i></a>
+                                </li>
+                            </ul><!-- end links -->
+                        </div>
                     </div><!-- end clearfix -->
                 </div><!-- end col -->
 
-				<div class="col-lg-4 col-md-4 col-xs-12">
+                <div class="col-lg-4 col-md-4 col-xs-12">
                     <div class="widget clearfix">
                         <div class="widget-title">
                             <h3>Навигация сайта</h3>
                         </div>
                         <ul class="footer-links">
                             <li><a class="nav-link" href="{% url 'app:index' %}">Главная</a></li>
-							<li><a class="nav-link" href="{% url 'app:about_us' %}">О нас</a></li>
+                            <li><a class="nav-link" href="{% url 'app:about_us' %}">О нас</a></li>
                             <li><a class="nav-link" href="{% url 'app:teachers' %}">Учителя</a></li>
-                            <li><a class="nav-link" href="{% url 'app:pricing' %}">Ценообразование</a></li>							
-							<li><a class="nav-link" href="{% url 'app:contact' %}">Обратная связь</a></li>
+                            <li><a class="nav-link" href="{% url 'app:pricing' %}">Ценообразование</a></li>
+                            <li><a class="nav-link" href="{% url 'app:contact' %}">Обратная связь</a></li>
                         </ul><!-- end links -->
                     </div><!-- end clearfix -->
                 </div><!-- end col -->
-				
+
                 <div class="col-lg-4 col-md-4 col-xs-12">
                     <div class="widget clearfix">
                         <div class="widget-title">
@@ -207,7 +247,7 @@
                         </ul><!-- end Связи -->
                     </div><!-- end clearfix -->
                 </div><!-- end колонки -->
-				
+
             </div><!-- end row -->
         </div><!-- end container -->
     </footer><!-- end footer -->
@@ -215,12 +255,13 @@
     <div class="copyrights">
         <div class="container">
             <div class="footer-distributed">
-                <div class="footer-center">                   
-                    <p class="footer-company-name">Все права защищены. &copy; 2024 {{school}}. Создатели сайта студенты школы <a href="https://msk.top-academy.ru" target="_blank">Топ Академия</a> Ширяев Константин, Бодняев Сергей, Ярков Кирилл</p>
+                <div class="footer-center">
+                    <p class="footer-company-name">Все права защищены. &copy; 2024 {{school}}. Создатели сайта студенты
+                        школы <a href="https://msk.top-academy.ru" target="_blank">Топ Академия</a> Ширяев Константин,
+                        Бодняев Сергей, Ярков Кирилл</p>
                 </div>
             </div>
         </div><!-- end container -->
     </div><!-- end copyrights -->
-	{% block content2 %}
+    {% block content2 %}
     {% endblock %}
-	
