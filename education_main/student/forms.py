@@ -1,9 +1,9 @@
 from django import forms
 from .models import *
 
-class CommentForm(forms.ModelForm):
-    body = forms.CharField(widget=forms.TextInput(
-        attrs={'class': 'UserQuestion', 'placeholder': 'Оставьте ваш отзыв'}
+class UserQuestionForm(forms.ModelForm):
+    body = forms.CharField(label='', widget=forms.Textarea(
+        attrs={'class': 'UserQuestion', 'placeholder': 'Оставьте ваш вопрос'}
     ))
     
     class Meta:
