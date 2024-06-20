@@ -75,5 +75,5 @@ def leave_review(request):
             return redirect('student:student_cabinet')
     else:
         form = CommentForm()
-    return render(request, 'student_cabinet.html', {'form':form})
+    return render(request, 'student_comment.html', {'form':form})
 
