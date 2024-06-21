@@ -1,13 +1,17 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseNotFound, Http404
+from .forms import CommentForm
+from .models import Review
 # from django.template.loader import render_to_string
 
 # Create your views here.
 school = 'Академия программистов'
 def index(request):
+    reviews = Review.objects.all()
     context = {
         'title': 'Главная страница',
-        'school': school
+        'school': school,
+        'reviews': reviews
     }
     return render(request, 'index.html', context)
 
@@ -61,6 +65,15 @@ def contact(request):
     # response = render_to_string('app/')
     return render(request, 'contact.html', context)
 
-
-
+def leave_review(request):
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.user = request.user
+            review.save()
+            return redirect('student:student_cabinet')
+    else:
+        form = CommentForm()
+    return render(request, 'student_comment.html', {'form':form})
 

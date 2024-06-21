@@ -4,56 +4,24 @@
 	
 	<div class="all-title-box">
 		<div class="container text-center">
-			<h1 style="color: #333333">Личный кабинет менеджера</h1>
+			<h1 style="color: #333333">Ваш отзыв:</h1>
+            <hr>
 		</div>
 	</div>
-	
-    <div id="overviews" class="section wb">
-        <div class="container">
-            <div class="section-title row text-center">
-                
-				</h2>
-            </div><!-- end title -->
-			
-            <hr class="invis"> 
 
-            <div class="row"> 
-                <div class="col-lg-6 col-md-6 col-12">
-                    <div class="course-item">
-						<div class="image-blog">
-							<!-- <img src="../../media/blog_1.jpg" alt="" class="img-fluid"> -->
-						</div>
-						<div class="course-br">
-							<div class="course-title">
-								<h2><a href="#" title="">Запрос от: {{user}}</a></h2>
-							</div>
-							<div class="course-desc">
-								<p>Текст: {{comment}}</p>
-							</div>
-							<hr>
-							<div class="course-desc">
-								<p>Дата: {{date}}</p>
-							</div>
-						</div>
-						<div class="course-meta-bot">
-							<ul>
-								<div class="big-tagline">
-									<a href="{% url 'app:contact' %}" class="hover-btn-new"><span>Принять</span></a>
-										
-								</div>
-								
-							</ul>
-						</div>
-					</div>
-                </div><!-- end col -->
-            </div><!-- end row -->
-			
-			
-			
-			
-			<hr class="hr3"> 
-        </div><!-- end container -->
-    </div><!-- end section -->
+
+    <div class="section-title row text-center">
+        <div class="col-md-8 offset-md-2">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+        <button type="sumbit">Отправить отзыв</button>
+            </form>
+        </div>
+    </div>
+    
+
+
 
     <div class="parallax section dbcolor">
         <div class="container">

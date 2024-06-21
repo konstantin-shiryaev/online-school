@@ -7,8 +7,7 @@ def teacher_cabinet(request):
     students = User.objects.filter(groups__name="Студенты")
     context = {
         'title': 'Список студентов',
-        'school': 'school',
+        'school': 'Академия программистов',
         'students': students
     }
     return render(request, 'teacher_cabinet.html', context)
-

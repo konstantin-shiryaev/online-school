@@ -222,44 +222,18 @@
             <div class="row">
                 <div class="col-md-12 col-sm-12">
                     <div class="testi-carousel owl-carousel owl-theme">
+						{% for r in reviews %}
                         <div class="testimonial clearfix">
 							<div class="testi-meta">
-                                <img src="../../media/testi_01.png" alt="" class="img-fluid">
-                                <h4>Дмитрий Шмонов </h4>
+                                <img src="../../media/testi_001.png" alt="" class="img-fluid">
+                                <h4>{{ r.user.first_name }} {{ r.user.last_name }}</h4>
+                                <h4>{{ r.date }}</h4>
                             </div>
                             <div class="desc">
-                                <h3><i class="fa fa-quote-left"></i> Вы лучшие!</h3>
-                                <p class="lead">Я выбрал Академию программистов, потому что хотел получить качественное образование в сфере IT. И я не прогадал! Обучение здесь интересное, информативное и практически полезное. Я нашел здесь свою страсть к программированию и теперь уверенно могу сказать, что сделал правильный выбор. Спасибо, Академия, за вашу работу!</p>
+                                <p class="lead">{{ r.body }}</p>
                             </div>
-                            <!-- end testi-meta -->
                         </div>
-                        <!-- end testimonial -->
-
-                        <div class="testimonial clearfix">
-							<div class="testi-meta">
-                                <img src="../../media/testi_02.png" alt="" class="img-fluid">
-                                <h4>Валентин Суходолец </h4>
-                            </div>
-                            <div class="desc">
-                                <h3><i class="fa fa-quote-left"></i>Обучение пролетело так быстро...</h3>
-                                <p class="lead">Поступив в Академию программистов, я был впечатлен профессионализмом преподавателей и интенсивностью обучения. Здесь я впервые понял, насколько важно понимать не только теорию, но и уметь применять знания на практике. Благодаря этому подходу, я смог быстро адаптироваться в индустрии и начать успешную карьеру разработчика программного обеспечения.</p>
-                            </div>
-                            <!-- end testi-meta -->
-                        </div>
-                        <!-- end testimonial -->
-
-                        <div class="testimonial clearfix">
-							<div class="testi-meta">
-                                <img src="../../media/testi_03.png" alt="" class="img-fluid ">
-                                <h4>Ванесса Паради </h4>
-                            </div>
-                            <div class="desc">
-                                <h3><i class="fa fa-quote-left"></i> Великолепная команда профессионалов!</h3>
-                                <p class="lead">Академия программистов - это именно то место, где можно получить все необходимые знания и навыки для успешной карьеры в IT. Программа обучения уникальна, а преподаватели действительно профессионалы своего дела. </p>
-                            </div>
-                            <!-- end testi-meta -->
-                        </div>
-                        <!-- end testimonial -->
+						{% endfor %}
                     </div><!-- end carousel -->
                 </div><!-- end col -->
             </div><!-- end row -->
