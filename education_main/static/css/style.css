@@ -3869,10 +3869,28 @@ a.link-style3 {
 .course-meta-bot ul li:hover{
 	color: #eea412;
 }
+.qr, .phone, .checkout {
+    display: flex;
+    align-items: center;
+    margin:2vh 0;
+    font-size: 1.2rem;
+}
 
-
-
-
+.qr {
+    justify-content: space-around;
+}
+.phone {
+    justify-content: space-evenly;
+}
+.title {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: red;
+}
+.checkout {
+    justify-content: space-between;
+}
 
 
 

@@ -1,33 +1,39 @@
 {% extends 'layout.html' %}
 {% block content %}
-	<div class="all-title-box">
-		<div class="container text-center">
-			<h1 style="color: 
-            #333333">Цены</h1>
-		</div>
-	</div>
-	
     <div id="pricing-box" class="section wb">
         <div class="container">
-			<div class="row">
-                {% for course in courses %}
-                <div class="col-md-4 col-sm-6">
-                    <div class="pricingTable">
-                        <div class="pricingTable-header">
-                            <span class="heading">
-                                <h3>{{course.title}}</h3>
-                            </span>
-                            <span class="price-value">{{ course.price }} ₽/<span class="month">месяц</span></span>
+            <div class="row" style="display: flex; justify-content: center;">
+                <div class="col-md-6 ">
+                <div class="inner-hmv">
+                    <h2>
+                        Для присоединения  к курсу "Backend разработчик" необходимо произвести разовую оплату
+                    </h2>
+                    <div class="qr">
+                        <div>По QR-коду</div>
+                        <div class="qr-code">
+                            <img width="100" src="../../media/WhatsApp Image 2024-06-21 at 15.10.49.jpeg" alt="">
                         </div>
+                    </div>
+                    <div class="phone">
+                        <div>Или по номеру телефона</div>
+                        <div class="phone">+79911234567</div>
+                    </div>
 
-                       
-                        <div class="pricingTable-sign-up">
-                            <a href="{% url 'student:join_course' course.pk %}" class="hover-btn-new orange"><span>приобрести</span></a>
-                        </div><!-- BUTTON BOX-->
+                    <div class="title">
+                        При оплате не забудьте в комментарии указать ваше ФИО
+                    </div>
+                    <div class="checkout">
+                        <div>К оплате</div>
+                        <div class="sum">{{course.price}} ₽</div>
+                    </div>
+                    <div class="pricingTable-sign-up">
+                        <a class="hover-btn-new orange">
+                            <span>Я оплатил(а)</span>
+                        </a>
                     </div>
                 </div>
-                {% endfor %}
             </div>
+        </div>
 		</div>
     </div><!-- end section -->
 

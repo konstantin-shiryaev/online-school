@@ -1,10 +1,8 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse, HttpResponseNotFound, Http404
 from .forms import CommentForm
-from .models import Review
-# from django.template.loader import render_to_string
+from .models import Review, Course
 
-# Create your views here.
+
 school = 'Академия программистов'
 def index(request):
     reviews = Review.objects.all()
@@ -51,9 +49,11 @@ def teachers(request):
     return render(request, 'teachers.html', context)
 
 def pricing(request):
+    courses = Course.objects.all()
     context = {
         'title': 'Стоимость курсов',
-        'school': school
+        'school': school,
+        'courses': courses
     }
     return render(request, 'pricing.html', context)
     
