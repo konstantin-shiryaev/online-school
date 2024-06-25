@@ -10,10 +10,11 @@
 	<div id="teachers" class="section wb">
         <div class="container">
             <div class="row">
+				{% for teacher in teachers %}
 				<div class="col-lg-3 col-md-6 col-12">
 					<div class="our-team">
 						<div class="team-img">
-							<img src="../../media/team-01.png">
+							<img src="{{teacher.avatar.url}}">
 							<div class="social">
 								<ul>
 									<li><a href="#" class="fa fa-facebook"></a></li>
@@ -24,71 +25,19 @@
 							</div>
 						</div>
 						<div class="team-content">
-							<h3 class="title">Матильда Петрова</h3>
-							<span class="post">Python, Django</span>
+							<h3 class="title">{{ teacher.teacher_user.first_name }} {{ teacher.teacher_user.last_name }} </h3>
+							<span class="post">
+								{% for course in teacher.course_set.all %}
+									 <span>
+										{{course}}, 
+									 </span>
+								{% endfor %}
+							</span>
 						</div>
 					</div>
 				</div>
+				{% endfor %}
 
-				<div class="col-lg-3 col-md-6 col-12">
-					<div class="our-team">
-						<div class="team-img">
-							<img src="../../media/team-02.png">
-							<div class="social">
-								<ul>
-									<li><a href="#" class="fa fa-facebook"></a></li>
-									<li><a href="#" class="fa fa-twitter"></a></li>
-									<li><a href="#" class="fa fa-linkedin"></a></li>
-									<li><a href="#" class="fa fa-skype"></a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="team-content">
-							<h3 class="title">Татьяна Рязанцева</h3>
-							<span class="post">HTML, CSS</span>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-6 col-12">
-					<div class="our-team">
-						<div class="team-img">
-							<img src="../../media/team-03.png">
-							<div class="social">
-								<ul>
-									<li><a href="#" class="fa fa-facebook"></a></li>
-									<li><a href="#" class="fa fa-twitter"></a></li>
-									<li><a href="#" class="fa fa-linkedin"></a></li>
-									<li><a href="#" class="fa fa-skype"></a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="team-content">
-							<h3 class="title">Геннадий Теневой</h3>
-							<span class="post">JS, React</span>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-6 col-12">
-					<div class="our-team">
-						<div class="team-img">
-							<img src="../../media/team-04.png">
-							<div class="social">
-								<ul>
-									<li><a href="#" class="fa fa-facebook"></a></li>
-									<li><a href="#" class="fa fa-twitter"></a></li>
-									<li><a href="#" class="fa fa-linkedin"></a></li>
-									<li><a href="#" class="fa fa-skype"></a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="team-content">
-							<h3 class="title">Виктория Бонева</h3>
-							<span class="post">Docker, Kubernetes</span>
-						</div>
-					</div>
-				</div>
 				
             </div><!-- end row -->
         </div><!-- end container -->

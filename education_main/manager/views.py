@@ -25,7 +25,7 @@ def manager_cabinet(request):
 
     context = {
         'title': 'Список студентов',
-        'school': 'school',
+        'school': 'Академия программистов',
         'users': users,
         'teachers': teachers,
         'students': students
