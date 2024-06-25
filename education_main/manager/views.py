@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
+from .models import *
 
 
 # Create your views here.
 def requests(request):
-    # response = render_to_string('app/')
-    return render(request, 'requests.html', {})
+    feedbacks = Request.objects.all()
+    return render(request, 'requests.html', {'feedbacks': feedbacks})
 
 
 def manager_cabinet(request):
@@ -29,3 +30,5 @@ def deactivate_user(request, pk):
         user.is_active = True
     user.save()
     return redirect("manager:manager_cabinet")
+
+

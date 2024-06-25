@@ -1,5 +1,6 @@
 from django import forms
-from .models import *
+from .models import Review
+from manager.models import  Request
 
 class CommentForm(forms.ModelForm):
     body = forms.CharField(label='', widget=forms.Textarea(
@@ -9,3 +10,11 @@ class CommentForm(forms.ModelForm):
     class Meta:
         fields = ['body']
         model = Review
+        
+class RequestForm(forms.ModelForm):
+    body = forms.CharField(label='', widget=forms.Textarea(
+        attrs={'class': 'input', 'placeholder': 'Свяжитесь с нами'}
+    ))
+    class Meta:
+        model = Request
+        fields = ['body']
