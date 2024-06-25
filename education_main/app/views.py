@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import CommentForm
+from .forms import CommentForm, RequestForm
 from .models import Review, Course
 from teacher.models import Teacher
 
@@ -60,12 +60,14 @@ def pricing(request):
     return render(request, 'pricing.html', context)
     
 def contact(request):
-    context = {
-        'title': 'Обратная связь',
-        'school': school
-    }
-    # response = render_to_string('app/')
-    return render(request, 'contact.html', context)
+    if request.method == 'POST':
+        form = RequestForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('app:contact')
+    else:
+        form = RequestForm()
+    return render(request, 'contact.html',  {'form': form})
 
 def leave_review(request):
     if request.method == 'POST':

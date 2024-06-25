@@ -1,11 +1,13 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
+from .models import *
 from student.models import Student, Check
+
 
 # Create your views here.
 def requests(request):
-    # response = render_to_string('app/')
-    return render(request, 'requests.html', {})
+    feedbacks = Request.objects.all()
+    return render(request, 'requests.html', {'feedbacks': feedbacks})
 
 
 def manager_cabinet(request):
@@ -43,6 +45,8 @@ def deactivate_user(request, pk):
     return redirect("manager:manager_cabinet")
 
 
+
 def user_checks(request):   
     checks = Check.objects.all()
     return render(request, 'user_checks.html', {'checks': checks})
+
