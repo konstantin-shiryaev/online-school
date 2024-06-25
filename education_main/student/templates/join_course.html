@@ -27,9 +27,18 @@
                         <div class="sum">{{course.price}} ₽</div>
                     </div>
                     <div class="pricingTable-sign-up">
-                        <a class="hover-btn-new orange">
+                        <a class="hover-btn-new orange" onclick="toggleCheck()">
                             <span>Я оплатил(а)</span>
                         </a>
+                    </div>
+
+                    <div class="check is-hidden">
+                        <h3>Загрузите чек (файл или скриншот)</h3>
+                        <form class="form" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{form}}
+                            <button type="submit">Отправить чек</button>
+                        </form>
                     </div>
                 </div>
             </div>

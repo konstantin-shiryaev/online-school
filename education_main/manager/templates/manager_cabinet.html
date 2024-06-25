@@ -63,10 +63,8 @@
 
 
     <div class="container text-center">
-        <h2>Студенты</h2>
+        <h2>Пользователи</h2>
     </div>
-
-
     <div class="section wb">
         <div class="container">
             <table class="table table-hover">
@@ -83,25 +81,25 @@
                 </tr>
                 </thead>
                 <tbody>
-                {% for student in students %}
+                {% for user in users %}
                     <tr>
-                        <td>{{ student.id }}</td>
-                        <td>{{ student.last_name }}</td>
-                        <td>{{ student.first_name }}</td>
-                        <td>{{ student.username }}</td>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.last_name }}</td>
+                        <td>{{ user.first_name }}</td>
+                        <td>{{ user.username }}</td>
                         <td>
-                            {% if student.is_active %}
+                            {% if user.is_active %}
                                 Активен
                             {% else %}
                                 Не активен
                             {% endif %}
                         </td>
-                        <td>{{ student.email }}</td>
-                        <td>{{ student.date_joined }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.date_joined }}</td>
                         <td>
 
-                            <a class="btn btn-secondary" href="{% url 'manager:deactivate_user' student.id %}">
-                                {% if student.is_active %}
+                            <a class="btn btn-secondary" href="{% url 'manager:deactivate_user' user.id %}">
+                                {% if user.is_active %}
                                     Дезактивировать
                                 {% else %}
                                     Активировать
@@ -120,6 +118,43 @@
     <hr class="hr3">
 
 
+    <div class="container text-center">
+        <h2>Студенты</h2>
+    </div>
+    <div class="section wb">
+        <div class="container">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">№</th>
+                    <th scope="col">Фамилия</th>
+                    <th scope="col">Имя</th>
+                    <th scope="col">Курс</th>
+                    <th scope="col">Почта</th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for student in students %}
+                    <tr>
+                        <td>{{ student.id }}</td>
+                        <td>{{ student.last_name }}</td>
+                        <td>{{ student.first_name }}</td>
+                        <td>{{ student.username }}</td>
+                        <td>{{ student.email }}</td>
+                        <td>
+
+                        </td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+
+
+        </div>
+    </div><!-- end col -->
+    <hr class="hr3">
 
     <div class="parallax section dbcolor">
         <div class="container">
