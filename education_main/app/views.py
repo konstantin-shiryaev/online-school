@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import CommentForm
 from .models import Review, Course
-
+from teacher.models import Teacher
 
 school = 'Академия программистов'
 def index(request):
@@ -42,10 +42,12 @@ def about_us(request):
     return render(request, 'about.html', context)
 
 def teachers(request):
+    teachers = Teacher.objects.all()
     context = {
         'title': 'Наши преподаватели',
-        'school': school
-    }
+        'school': school,
+        'teachers': teachers
+        }
     return render(request, 'teachers.html', context)
 
 def pricing(request):

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-
+from student.models import Student, Check
 
 # Create your views here.
 def requests(request):
@@ -9,14 +9,26 @@ def requests(request):
 
 
 def manager_cabinet(request):
-    # response = render_to_string('app/')
-    students = User.objects.filter(groups__name="Студенты")
+    users = User.objects.filter(groups__name="Студенты")
     teachers = User.objects.filter(groups__name="Преподаватели")
+    students_objects = Student.objects.all()
+    students = []
+
+    for student in students_objects:
+        students.append({
+            'id': student.pk,
+            'last_name': student.student_user.last_name,
+            'first_name': student.student_user.first_name,
+            'username': student.student_user.username,
+            'email': student.student_user.email
+        })
+
     context = {
         'title': 'Список студентов',
-        'school': 'school',
-        'students': students,
-        'teachers': teachers
+        'school': 'Академия программистов',
+        'users': users,
+        'teachers': teachers,
+        'students': students
     }
     return render(request, 'manager_cabinet.html', context)
 
@@ -29,3 +41,8 @@ def deactivate_user(request, pk):
         user.is_active = True
     user.save()
     return redirect("manager:manager_cabinet")
+
+
+def user_checks(request):   
+    checks = Check.objects.all()
+    return render(request, 'user_checks.html', {'checks': checks})
