@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from .forms import UserQuestionForm
 from .models import UserQuestion
+from app.models import Course
 
-# Create your views here.
 def student_cabinet(request):
     # response = render_to_string('app/')
     return render(request, 'student_cabinet.html', {})
@@ -11,6 +11,10 @@ def student_cabinet(request):
 
 def student_comment(request):
     return render(request, 'student_comment.html', {})
+
+def join_course(request, pk):
+    course = Course.objects.get(pk=pk)
+    return render(request, 'join_course.html', {'course': course})
 
 def leaveAquestion(request):
     data = UserQuestion.objects.all()

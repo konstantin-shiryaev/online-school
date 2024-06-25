@@ -4,4 +4,5 @@ urlpatterns = [
     path('student_cabinet', views.student_cabinet, name='student_cabinet'),
     path('student_comment', views.student_comment, name='student_comment'),
     path('leave_question', views.leaveAquestion, name='leave_question'),
+    path('join_course/<int:pk>', views.join_course, name='join_course'),
 ]
