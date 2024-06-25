@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="flex-container text-center">
+        <h4 style="color: #333333">
+        Ваш платеж передан менеджеру
+        </h4>
+        <div class="buttons">
+            <a href="{% url 'app:index' %}" class="button">
+                <span>На главную</span>
+            </a>
+            <a href="{% url 'student:student_cabinet' %}" class=" button">
+                <span>В личный кабинет</span>
+            </a>
+        </div>
+    </div>
+{% endblock %}
+{% block content2 %}
+    <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+
+    <!-- ALL JS FILES -->
+    <script src="../../static/js/all.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="../../static/js/custom.js"></script>
+
+</body>
+</html>
+{% endblock %}

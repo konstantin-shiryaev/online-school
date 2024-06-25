@@ -1,60 +1,47 @@
 {% extends 'layout.html' %}
 {% block content %}
-	<!-- End header -->
-	
-	<div class="all-title-box">
-		<div class="container text-center">
-			<h1 style="color: #333333">Личный кабинет менеджера</h1>
-		</div>
-	</div>
-	
-    <div id="overviews" class="section wb">
+    <div class="container text-center">
+        <h2>Новые чеки оплат курсов</h2>
+    </div>
+
+    <div class="section wb">
         <div class="container">
-            <div class="section-title row text-center">
-                
-				</h2>
-            </div><!-- end title -->
-			
-            <hr class="invis"> 
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">№</th>
+                    <th scope="col">Фамилия</th>
+                    <th scope="col">Имя</th>
+                    <th scope="col">Курс</th>
+                    <th scope="col">Чек</th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for check in checks %}
+                    <tr>
+                        <td>{{ check.id }}</td>
+                        <td>{{ check.customer.last_name }}</td>
+                        <td>{{ check.customer.first_name }}</td>
+                        <td>{{ check.course }}</td>
+                        <td>
+                            <a href="{{check.file.url}}" download="{{check.file}}" id="downloadLink"">
+                                Скачать файл
+                            </a>
+                        </td>                       
+                        <td>
+                           <button>Открыть доступ к курсу</button>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div><!-- end col -->
+    <hr class="hr3">
 
-            <div class="row"> 
-                <div class="col-lg-6 col-md-6 col-12">
-                    <div class="course-item">
-						<div class="image-blog">
-							<!-- <img src="../../media/blog_1.jpg" alt="" class="img-fluid"> -->
-						</div>
-						<div class="course-br">
-							<div class="course-title">
-								<h2><a href="#" title="">Запрос от: {{user}}</a></h2>
-							</div>
-							<div class="course-desc">
-								<p>Текст: {{comment}}</p>
-							</div>
-							<hr>
-							<div class="course-desc">
-								<p>Дата: {{date}}</p>
-							</div>
-						</div>
-						<div class="course-meta-bot">
-							<ul>
-								<div class="big-tagline">
-									<a href="{% url 'app:contact' %}" class="hover-btn-new"><span>Принять</span></a>
-										
-								</div>
-								
-							</ul>
-						</div>
-					</div>
-                </div><!-- end col -->
-            </div><!-- end row -->
-			
-			
-			
-			
-			<hr class="hr3"> 
-        </div><!-- end container -->
-    </div><!-- end section -->
-
+	
+	
     <div class="parallax section dbcolor">
         <div class="container">
             <div class="row logos">

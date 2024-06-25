@@ -1,8 +1,7 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.models import User
-from .forms import UserQuestionForm
-from .models import UserQuestion
 from app.models import Course
+from .forms import CheckForm
+from student.models import Student
 
 def student_cabinet(request):
     # response = render_to_string('app/')
@@ -14,18 +13,16 @@ def student_comment(request):
 
 def join_course(request, pk):
     course = Course.objects.get(pk=pk)
-    return render(request, 'join_course.html', {'course': course})
+    form = CheckForm(request.POST or None, request.FILES or None)
 
-def leaveAquestion(request):
-    data = UserQuestion.objects.all()
-    print(request.GET)
-    if request.method == 'POST':
-        form = UserQuestionForm(request.POST)
-        if form.is_valid():
-            review = form.save(commit=False)
-            review.user = request.user
-            review.save()
-            return redirect('manager:requests')
-    else:
-        form = UserQuestionForm()
-    return render(request, 'contact.html', {'form':form, 'data': data})
+    if form.is_valid():
+        instance = form.save(commit=False)
+        instance.customer = request.user
+        instance.course = course
+        instance.save()
+        return redirect('student:answer')
+    return render(request, 'join_course.html', {'course': course, 'form': form})
+    
+
+def answer(request):
+    return render(request, 'answer.html', {})

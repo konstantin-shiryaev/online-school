@@ -3892,13 +3892,36 @@ a.link-style3 {
     justify-content: space-between;
 }
 
+.check {
+  margin-top: 3vh;
+  text-align: center;
+}
+.is-hidden {
+    display: none;
+}
 
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 50vh;
+    gap: 20px;
+}
+.flex-container h4 {
+    font-size: 2rem;
+}
+.flex-container a {
+    background: orange;
+    color: black;
+    padding: 10px;
+    font-size: 1.2rem;
+}
 
-
-
-
-
-
+.buttons {
+    display: flex;
+    gap: 20px;
+}
 
 
 
