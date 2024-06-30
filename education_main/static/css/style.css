@@ -3922,7 +3922,39 @@ a.link-style3 {
     display: flex;
     gap: 20px;
 }
+.button {
+    border: 1px solid grey;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: green;
+    color: white;
+}
+.button:hover {
+    color: white;
+}
+.flex-centered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 22px;
+}
+.navbar a {
+    color: orange;
+}
 
+.is-active {
+    background: orange;
+    color: white !important;
+    padding: 10px;
+}
 
 
 

@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import CommentForm, RequestForm
 from .models import Review, Course
 from teacher.models import Teacher
+from users.utils import redirects
 
 school = 'Академия программистов'
 def index(request):
@@ -80,4 +81,11 @@ def leave_review(request):
     else:
         form = CommentForm()
     return render(request, 'student_comment.html', {'form':form})
+
+def my_cabinet(request):
+    if request.user.is_superuser:
+        return redirect('manager:manager_cabinet')
+    user_group = request.user.groups.all()[0].name.lower()
+    
+    return redirect(redirects[user_group])
 

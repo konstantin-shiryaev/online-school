@@ -6,10 +6,18 @@
 		<div class="container text-center">
 			<h1 style="color: #333333">Личный кабинет студента</h1>
             <br>
-            <h2 style="color: #333333">{{user.first_name}} {{user.last_name}}</h2>
+            <h2 style="color: #333333">{{user.student_user.first_name}} {{user.student_user.last_name}}</h2>
             <hr>
             <br>
-            <h2>Мой курс: <a href="{% url 'app:course1' %}">Backend-Разработчик</a></h2>
+            {% if user.course %}
+            <h2>Мой курс: <a>{{ user.course }}</a></h2>
+            {% else %}
+            <h2>
+                Вы пока не купили ни один курс
+                <br>
+                Перейдите <a style="color: blue;" href="{% url 'app:pricing' %}">сюда</a> чтобы посмотреть список курсов
+            </h2>
+            {% endif %}
             <hr>
 		</div>
 	</div>

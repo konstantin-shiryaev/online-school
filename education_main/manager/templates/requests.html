@@ -1,82 +1,82 @@
 {% extends 'layout.html' %}
 {% block content %}
-	<!-- End header -->
-	
-	<div class="all-title-box">
-		<div class="container text-center">
-			<h1 style="color: #333333">Личный кабинет менеджера</h1>
-		</div>
-	</div>
-	
-    <div id="overviews" class="section wb">
-        <div class="container">
-            <div class="section-title row text-center">
-                
-				</h2>
-            </div><!-- end title -->
-			
-            <hr class="invis"> 
-            <h1>Список запросов</h1>
-            <div class="row"> 
-                
-                
-						
-                        
-                {% for r in feedbacks %}
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <div class="card">
+<nav class="navbar">
+   <a href="{% url 'manager:manager_cabinet' %}" class="navbar-item">Главная</a>
+   <a href="{% url 'manager:students_table' %}" class="navbar-item">Студенты</a>
+   <a href="{% url 'manager:teachers_table' %}" class="navbar-item">Преподаватели</a>
+   <a href="{% url 'manager:requests' %}" class="navbar-item is-active">Обратная связь</a>
+   <a href="{% url 'manager:user_checks' %}" class="navbar-item">Чеки</a>
+</nav>
+  
+   <div id="overviews" class="section wb">
+       <div class="container">
+           <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; align-items: center;">                        
+               {% for r in feedbacks %}
+               <div class="col-md-4 mb-3" >
+                   <div class="card" style="padding: 20px; min-height: 200px;">
+                       <p class="card-text text-center" style="font-size: 1.2rem;">
+                           {{ r.body }}
+                       </p>
+                       <p class="card-text" style="color: grey; text-align: right; font-size: 0.8rem;">
+                           Дата обращения:
+                           {{ r.date }}
+                       </p>
+                       <div class="pricingTable-sign-up text-center">
+                           {% if not r.is_accepted %}
+                           <a href="{% url 'manager:read_request' r.pk  %}" class="hover-btn-new" style="text-transform: capitalize;">
+                               <span>
+                               прочитано
+                               </span>
+                           </a>
+                           {% endif %}
+                       </div>
+                   </div>
+               </div>  
+              
+               {% endfor %}
+              
+           </div><!-- end row -->
 
-                            <p class="card-text">{{ r.body }}</p>
-                            <p class="card-text">{{ r.date }}</p>
-                            
-                            <div class="pricingTable-sign-up text-center">
-                                <a href="#" class="hover-btn-new orange"><span>Удалить</span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>   
-                
-                {% endfor %}
-                
-            </div><!-- end row -->
 
-        </div><!-- end container -->
-    </div><!-- end section -->
+       </div><!-- end container -->
+   </div><!-- end section -->
 
-    <div class="parallax section dbcolor">
-        <div class="container">
-            <div class="row logos">
-                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                    <a href="#"><img src="../../media/logo_01.png" alt="" class="img-repsonsive"></a>
-                </div>
-                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                    <a href="#"><img src="../../media/logo_02.png" alt="" class="img-repsonsive"></a>
-                </div>
-                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                    <a href="#"><img src="../../media/logo_03.png" alt="" class="img-repsonsive"></a>
-                </div>
-                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                    <a href="#"><img src="../../media/logo_04.png" alt="" class="img-repsonsive"></a>
-                </div>
-                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                    <a href="#"><img src="../../media/logo_05.png" alt="" class="img-repsonsive"></a>
-                </div>
-                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                    <a href="#"><img src="../../media/logo_06.png" alt="" class="img-repsonsive"></a>
-                </div>
-            </div><!-- end row -->
-        </div><!-- end container -->
-    </div><!-- end section -->
+
+   <div class="parallax section dbcolor">
+       <div class="container">
+           <div class="row logos">
+               <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                   <a href="#"><img src="../../media/logo_01.png" alt="" class="img-repsonsive"></a>
+               </div>
+               <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                   <a href="#"><img src="../../media/logo_02.png" alt="" class="img-repsonsive"></a>
+               </div>
+               <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                   <a href="#"><img src="../../media/logo_03.png" alt="" class="img-repsonsive"></a>
+               </div>
+               <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                   <a href="#"><img src="../../media/logo_04.png" alt="" class="img-repsonsive"></a>
+               </div>
+               <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                   <a href="#"><img src="../../media/logo_05.png" alt="" class="img-repsonsive"></a>
+               </div>
+               <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                   <a href="#"><img src="../../media/logo_06.png" alt="" class="img-repsonsive"></a>
+               </div>
+           </div><!-- end row -->
+       </div><!-- end container -->
+   </div><!-- end section -->
 {% endblock %}
 {% block content2 %}
-    <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+   <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
 
-    <!-- ALL JS FILES -->
-    <script src="../../static/js/all.js"></script>
-    <!-- ALL PLUGINS -->
-    <script src="../../static/js/custom.js"></script>
 
-</body>
-</html>
+   <!-- ALL JS FILES -->
+   <script src="../../static/js/all.js"></script>
+   <!-- ALL PLUGINS -->
+   <script src="../../static/js/custom.js"></script>
+
+
+
 {% endblock %}
+

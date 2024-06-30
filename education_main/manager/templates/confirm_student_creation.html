@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+{% block content %}
+    
+    <div style="height: 70vh;" class="flex-centered">
+        <div class="container">
+            <form class="box text-center" method="post">
+                {% csrf_token %}
+                <h1>Подтвердите добавление студента</h1>
+                <table border="" style="margin: auto; font-size: 1.5rem;">
+                    <tbody>
+                        <tr>
+                            <td>Имя</td>
+                            <td>{{ user.first_name}} {{ user.last_name}}</td>
+                        </tr>
+                        <tr>
+                            <td>Курс</td>
+                            <td>{{course}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="margin-top: 2vh;">
+                    <button class="button">Подтвердить</button>
+                    <button class="button">
+                        <a href="{% url 'manager:user_checks' %}" class="button">Отмена</a>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="parallax section dbcolor">
+        <div class="container">
+            <div class="row logos">
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="../../media/logo_01.png" alt="" class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="../../media/logo_02.png" alt="" class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="../../media/logo_03.png" alt="" class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="../../media/logo_04.png" alt="" class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="../../media/logo_05.png" alt="" class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="../../media/logo_06.png" alt="" class="img-repsonsive"></a>
+                </div>
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end section -->
+{% endblock %}
+{% block content2 %}
+    <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+
+    <!-- ALL JS FILES -->
+    <script src="../../static/js/all.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="../../static/js/custom.js"></script>
+
+
+{% endblock %}

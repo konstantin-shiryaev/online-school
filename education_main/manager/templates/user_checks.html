@@ -1,13 +1,22 @@
 {% extends 'layout.html' %}
 {% block content %}
-    <div class="container text-center">
-        <h2>Новые чеки оплат курсов</h2>
-    </div>
+<nav class="navbar">
+    <a href="{% url 'manager:manager_cabinet' %}" class="navbar-item">Главная</a>
+    <a href="{% url 'manager:students_table' %}" class="navbar-item">Студенты</a>
+    <a href="{% url 'manager:teachers_table' %}" class="navbar-item">Преподаватели</a>
+    <a href="{% url 'manager:requests' %}" class="navbar-item">Обратная связь</a>
+    <a href="{% url 'manager:user_checks' %}" class="navbar-item is-active">Чеки</a>
 
-    <div class="section wb">
-        <div class="container">
-            <table class="table table-hover">
-                <thead>
+</nav>
+
+<div class="section wb">
+    <div class="container">
+        <div style="margin: 20px 0;">
+            <a href="{% url 'manager:user_checks' %}" class="button">Новые</a>
+            <a href="{% url 'manager:user_checks' %}?confirmed=true" class="button" style="background: orange;">В архиве</a>
+        </div>
+        <table class="table table-hover">
+            <thead>
                 <tr>
                     <th scope="col">№</th>
                     <th scope="col">Фамилия</th>
@@ -15,66 +24,75 @@
                     <th scope="col">Курс</th>
                     <th scope="col">Чек</th>
                     <th scope="col"></th>
+                    <th scope="col"></th>
                 </tr>
-                </thead>
-                <tbody>
+            </thead>
+            <tbody>
                 {% for check in checks %}
-                    <tr>
-                        <td>{{ check.id }}</td>
-                        <td>{{ check.customer.last_name }}</td>
-                        <td>{{ check.customer.first_name }}</td>
-                        <td>{{ check.course }}</td>
-                        <td>
-                            <a href="{{check.file.url}}" download="{{check.file}}" id="downloadLink"">
-                                Скачать файл
-                            </a>
-                        </td>                       
-                        <td>
-                           <button>Открыть доступ к курсу</button>
-                        </td>
-                    </tr>
+                <tr>
+                    <td>{{ check.id }}</td>
+                    <td>{{ check.customer.last_name }}</td>
+                    <td>{{ check.customer.first_name }}</td>
+                    <td>{{ check.course }}</td>
+                    <td>
+                        <a class="button" style="background: grey;" href="{{check.file.url}}" download="{{check.file}}" id="downloadLink">
+                            Скачать файл
+                        </a>
+                    </td>
+                    <td>
+                        <a class="button"  href="{% url 'manager:add_student' %}?user={{check.customer.pk}}&course={{check.course.pk}}">Открыть
+                            доступ к курсу</a>
+                    </td>
+                    {% if not check.confirmed %}
+                    <td>
+                        <a class="button" style="background: orange;" href="{% url 'manager:archive_check' check.pk %}">В архив</a>
+                    </td>
+                    {% endif %}
+                    
+                </tr>
                 {% endfor %}
-                </tbody>
-            </table>
-        </div>
-    </div><!-- end col -->
-    <hr class="hr3">
+            </tbody>
+        </table>
+    </div>
+</div><!-- end col -->
+<hr class="hr3">
 
-	
-	
-    <div class="parallax section dbcolor">
-        <div class="container">
-            <div class="row logos">
-                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                    <a href="#"><img src="../../media/logo_01.png" alt="" class="img-repsonsive"></a>
-                </div>
-                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                    <a href="#"><img src="../../media/logo_02.png" alt="" class="img-repsonsive"></a>
-                </div>
-                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                    <a href="#"><img src="../../media/logo_03.png" alt="" class="img-repsonsive"></a>
-                </div>
-                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                    <a href="#"><img src="../../media/logo_04.png" alt="" class="img-repsonsive"></a>
-                </div>
-                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                    <a href="#"><img src="../../media/logo_05.png" alt="" class="img-repsonsive"></a>
-                </div>
-                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                    <a href="#"><img src="../../media/logo_06.png" alt="" class="img-repsonsive"></a>
-                </div>
-            </div><!-- end row -->
-        </div><!-- end container -->
-    </div><!-- end section -->
+
+
+<div class="parallax section dbcolor">
+    <div class="container">
+        <div class="row logos">
+            <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                <a href="#"><img src="../../media/logo_01.png" alt="" class="img-repsonsive"></a>
+            </div>
+            <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                <a href="#"><img src="../../media/logo_02.png" alt="" class="img-repsonsive"></a>
+            </div>
+            <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                <a href="#"><img src="../../media/logo_03.png" alt="" class="img-repsonsive"></a>
+            </div>
+            <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                <a href="#"><img src="../../media/logo_04.png" alt="" class="img-repsonsive"></a>
+            </div>
+            <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                <a href="#"><img src="../../media/logo_05.png" alt="" class="img-repsonsive"></a>
+            </div>
+            <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                <a href="#"><img src="../../media/logo_06.png" alt="" class="img-repsonsive"></a>
+            </div>
+        </div><!-- end row -->
+    </div><!-- end container -->
+</div><!-- end section -->
 {% endblock %}
 {% block content2 %}
-    <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+<a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
 
-    <!-- ALL JS FILES -->
-    <script src="../../static/js/all.js"></script>
-    <!-- ALL PLUGINS -->
-    <script src="../../static/js/custom.js"></script>
+<!-- ALL JS FILES -->
+<script src="../../static/js/all.js"></script>
+<!-- ALL PLUGINS -->
+<script src="../../static/js/custom.js"></script>
 
 </body>
+
 </html>
 {% endblock %}

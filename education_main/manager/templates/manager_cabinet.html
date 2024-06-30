@@ -2,67 +2,17 @@
 {% load sign_up %}
 
 {% block content %}
-    <div id="overviews" class="section wb">
-        <h2 class="text-center">Преподаватели</h2>
-        <div class="container">
-            <a class="btn btn-success my-2" href="#" data-toggle="modal" data-target="#register">
-                <span>
-                    Добавить
-                </span>
-            </a>
-            <table class="table table-hover">
-                <thead>
-                <tr>
-                    <th scope="col">№</th>
-                    <th scope="col">Фамилия</th>
-                    <th scope="col">Имя</th>
-                    <th scope="col">Никнейм</th>
-                    <th scope="col">Статус</th>
-                    <th scope="col">Почта</th>
-                    <th scope="col">Добавлен</th>
-                    <th scope="col"></th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for teacher in teachers %}
-                    <tr>
-                        <td>{{ teacher.id }}</td>
-                        <td>{{ teacher.last_name }}</td>
-                        <td>{{ teacher.first_name }}</td>
-                        <td>{{ teacher.username }}</td>
-                        <td>
-                             {% if teacher.is_active %}
-                                Активен
-                            {% else %}
-                                Не активен
-                            {% endif %}
-                        </td>
-                        <td>{{ teacher.email }}</td>
-                        <td>{{ teacher.date_joined }}</td>
+    <nav class="navbar">
+        <a href="{% url 'manager:manager_cabinet' %}" class="navbar-item is-active">Главная</a>
+        <a href="{% url 'manager:students_table' %}" class="navbar-item">Студенты</a>
+        <a href="{% url 'manager:teachers_table' %}" class="navbar-item">Преподаватели</a>
+        <a href="{% url 'manager:requests' %}" class="navbar-item">Обратная связь</a>
+        <a href="{% url 'manager:user_checks' %}" class="navbar-item">Чеки</a>
 
-                        <td>
-                            <a href="{% url 'manager:deactivate_user' teacher.id %}" class="btn btn-secondary">
-                                {% if teacher.is_active %}
-                                    Дезактивировать
-                                {% else %}
-                                    Активировать
-                                {% endif %}
-                            </a>
-                        </td>
-                    </tr>
-                {% endfor %}
-
-                </tbody>
-            </table>
+    </nav>
 
 
-        </div>
-    </div><!-- end col -->
-    <hr class="hr3">
-
-
-
-    <div class="container text-center">
+    <div class="container text-center" style="margin-top: 5vh">
         <h2>Пользователи</h2>
     </div>
     <div class="section wb">
@@ -105,45 +55,6 @@
                                     Активировать
                                 {% endif %}
                             </a>
-                        </td>
-                    </tr>
-                {% endfor %}
-
-                </tbody>
-            </table>
-
-
-        </div>
-    </div><!-- end col -->
-    <hr class="hr3">
-
-
-    <div class="container text-center">
-        <h2>Студенты</h2>
-    </div>
-    <div class="section wb">
-        <div class="container">
-            <table class="table table-hover">
-                <thead>
-                <tr>
-                    <th scope="col">№</th>
-                    <th scope="col">Фамилия</th>
-                    <th scope="col">Имя</th>
-                    <th scope="col">Курс</th>
-                    <th scope="col">Почта</th>
-                    <th scope="col"></th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for student in students %}
-                    <tr>
-                        <td>{{ student.id }}</td>
-                        <td>{{ student.last_name }}</td>
-                        <td>{{ student.first_name }}</td>
-                        <td>{{ student.username }}</td>
-                        <td>{{ student.email }}</td>
-                        <td>
-
                         </td>
                     </tr>
                 {% endfor %}

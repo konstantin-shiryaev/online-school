@@ -4,8 +4,9 @@ from .forms import CheckForm
 from student.models import Student
 
 def student_cabinet(request):
-    # response = render_to_string('app/')
-    return render(request, 'student_cabinet.html', {})
+    user = Student.objects.get(student_user=request.user)
+    
+    return render(request, 'student_cabinet.html', {'user':user})
 
 
 def student_comment(request):
